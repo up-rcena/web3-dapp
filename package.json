@@ -9,11 +9,21 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@everipedia/wagmi-magic-connector": "^0.6.5",
+    "@moralisweb3/evm-utils": "^2.1.1",
+    "@rainbow-me/rainbowkit": "^0.5.0",
+    "axios": "^0.27.2",
+    "ethers": "^5.7.0",
+    "moralis": "^2.1.1",
     "next": "12.2.5",
+    "next-auth": "^4.10.3",
     "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react-dom": "18.2.0",
+    "wagmi": "^0.6.4"
   },
   "devDependencies": {
+    "@ant-design/icons": "^4.7.0",
+    "antd": "^4.22.8",
     "eslint": "8.23.0",
     "eslint-config-next": "12.2.5"
   }
