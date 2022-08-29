@@ -8,19 +8,19 @@ function User({user}) {
 
   const userDetails = (user) => {
 
-    return (<div>
-      <p>Address: {user.address}</p>
-      <p>Profile ID: {user.profileId}</p>
-      <p>Signature: {user.signature}</p>
+    return (<div style={{margin: 15}}>
+      <h3>Address: {user.address}</h3>
+      <h3>Profile ID: {user.profileId}</h3>
+      <h3>Signature: {user.signature}</h3>
     </div>)
   }
 
   return (<section>
-      <h2>User Profile</h2>
-      <div className={global.main}>
-        {userDetails(user)}
-      </div>
-    </section>)
+    <h2>User Profile</h2>
+    <div className={global.main}>
+      {userDetails(user)}
+    </div>
+  </section>)
 }
 
 export async function getServerSideProps(context) {
@@ -45,11 +45,11 @@ export default User
 
 User.getLayout = function getLayout(page) {
   return (<MainLayout>
-      <Head>
-        <title>Web3 DApp | User</title>
-        <meta name="description" content="Web3 - NFT Application"/>
-        <link rel="icon" href="/favicon.ico"/>
-      </Head>
-      {page}
-    </MainLayout>)
+    <Head>
+      <title>Web3 DApp | User Profile</title>
+      <meta name="description" content="Web3 - NFT Application"/>
+      <link rel="icon" href="/favicon.ico"/>
+    </Head>
+    {page}
+  </MainLayout>)
 }

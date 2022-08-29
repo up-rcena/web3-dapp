@@ -7,7 +7,9 @@ function Home() {
     <section>
       <h2>Main</h2>
       <div className={global.main}>
-        Main
+        <div style={{ margin: 15 }}>
+          Main
+        </div>
       </div>
     </section>
   )

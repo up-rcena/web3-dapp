@@ -24,6 +24,7 @@
   "devDependencies": {
     "@ant-design/icons": "^4.7.0",
     "antd": "^4.22.8",
+    "circular-json": "^0.5.9",
     "eslint": "8.23.0",
     "eslint-config-next": "12.2.5"
   }

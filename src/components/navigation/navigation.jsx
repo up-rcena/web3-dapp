@@ -9,7 +9,7 @@ import {Avatar, List, Popover} from "antd";
 import {UserOutlined} from "@ant-design/icons";
 
 function Navigation() {
-  const {isConnected, address } = useAccount()
+  const {isConnected, address, status: accountStatus } = useAccount()
   const {chain} = useNetwork()
   const {status} = useSession()
   const {signMessageAsync} = useSignMessage()
@@ -30,31 +30,36 @@ function Navigation() {
 
       const signature = await signMessageAsync({message})
 
-      // redirect user after success authentication to '/user' page
+      // redirect profile after success authentication to '/profile' page
       const {url} = await signIn('credentials', {
         message, signature, redirect: false, callbackUrl: '/',
       })
       /**
-       * instead of using signIn(..., redirect: "/user")
+       * instead of using signIn(..., redirect: "/profile")
        * we get the url from callback and push it to the router to avoid page refreshing
        */
       push(url)
     }
+
     if (status === 'unauthenticated' && isConnected) {
       handleAuth()
     }
   }, [status, isConnected])
 
   const handleProfile = () => {
-    push('/user')
+    push('/profile')
   }
 
   const handleNFT = () => {
     push('/protected/nft')
   }
 
+  const handleNative = () => {
+    push('/native')
+  }
+
   const handleSignOut = async () => {
-    signOut({redirect: '/'})
+    await signOut({redirect: '/'})
     await disconnectAsync({})
   }
 
@@ -74,6 +79,14 @@ function Navigation() {
             avatar={<Avatar size={36} icon={<UserOutlined/>} />}
             title={'NFT'}
             onClick={() => handleNFT()}
+            className={styles.menu_item_meta}
+          />
+        </List.Item>
+        <List.Item className={styles.menu_item_list}>
+          <List.Item.Meta
+            avatar={<Avatar size={36} icon={<UserOutlined/>} />}
+            title={'Native'}
+            onClick={() => handleNative()}
             className={styles.menu_item_meta}
           />
         </List.Item>
@@ -101,7 +114,7 @@ function Navigation() {
           content={handlePopoverMenu}
           trigger={'hover'}
         >
-          {status === 'authenticated' && (
+          {status === 'authenticated' && accountStatus === 'connected' && (
             <Avatar
               size={42}
               icon={<UserOutlined/>}

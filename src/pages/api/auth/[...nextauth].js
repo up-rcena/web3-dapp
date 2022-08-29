@@ -33,7 +33,7 @@ export default NextAuth({
             await Moralis.Auth.verify({ message, signature, network: 'evm' })
           ).raw;
 
-          // returning the user object and creating  a session
+          // returning the profile object and creating  a session
           return { address, profileId, signature };
         } catch (e) {
           console.error(e);
@@ -42,7 +42,7 @@ export default NextAuth({
       },
     }),
   ],
-  // adding user info to the user session object
+  // adding profile info to the profile session object
   callbacks: {
     async jwt({ token, user }) {
       user && (token.user = user);

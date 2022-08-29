@@ -10,15 +10,17 @@ function NFT({message, nftList}) {
     <section>
       <h2>NFT Protected</h2>
       <div className={global.main}>
-        <p>{message}</p>
-        <p>{JSON.stringify(nftList, null, 2)}</p>
+        <div style={{margin: 15}}>
+          <p>{message}</p>
+          <p>{JSON.stringify(nftList, null, 2)}</p>
+        </div>
       </div>
     </section>
   )
 }
 
 export async function getServerSideProps(context) {
-  const { MORALIS_API_KEY, MORALIS_ADDRESS } = process.env
+  const {MORALIS_API_KEY, MORALIS_ADDRESS} = process.env
 
   const session = await getSession(context);
 
@@ -31,7 +33,7 @@ export async function getServerSideProps(context) {
     }
   }
 
-  await Moralis.start({ apiKey: MORALIS_API_KEY })
+  await Moralis.start({apiKey: MORALIS_API_KEY})
 
   const nftList = await Moralis.EvmApi.account.getNFTsForContract({
     address: session.user.address,
@@ -53,8 +55,8 @@ NFT.getLayout = function getLayout(page) {
     <MainLayout>
       <Head>
         <title>Web3 DApp | Native</title>
-        <meta name="description" content="Web3 - Native" />
-        <link rel="icon" href="/favicon.ico" />
+        <meta name="description" content="Web3 - Native"/>
+        <link rel="icon" href="/favicon.ico"/>
       </Head>
       {page}
     </MainLayout>
