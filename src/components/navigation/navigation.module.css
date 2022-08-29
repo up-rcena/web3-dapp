@@ -1,0 +1,46 @@
+.navigation {
+	color: red;
+	display: flex;
+	justify-content: space-between;
+	height: 100%;
+}
+
+.wallet_button_container {
+	margin: auto 0;
+	display: flex;
+}
+
+.signout {
+	height: 40px;
+	margin-left: 15px;
+	cursor: pointer;
+}
+
+.ant-popover-inner-content {
+	padding: 12px 0 !important;
+}
+
+.ant-popover-inner {
+	border-radius: 10px;
+}
+
+.menu_list {
+
+}
+
+.menu_item_list {
+}
+
+
+.menu_item_list:hover {
+	background-color: #f1f1f1;
+}
+
+.menu_item_meta {
+	cursor: pointer;
+	height: 100%;
+}
+
+.menu_item_meta div:last-child {
+	margin: auto 0;
+}
