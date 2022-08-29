@@ -1,10 +1,14 @@
 import Head from 'next/head'
 import MainLayout from './../components/layouts/main-layouts';
+import global from '../../styles/main.module.css'
 
 function Home() {
   return (
     <section>
-      Main
+      <h2>Main</h2>
+      <div className={global.main}>
+        Main
+      </div>
     </section>
   )
 }

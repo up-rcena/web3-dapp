@@ -2,14 +2,17 @@ import Moralis from 'moralis'
 import MainLayout from "../../components/layouts/main-layouts";
 import Head from "next/head";
 import {getSession} from "next-auth/react";
+import global from '../../../styles/main.module.css'
 
 function NFT({message, nftList}) {
 
   return (
     <section>
       <h2>NFT Protected</h2>
-      <p>{message}</p>
-      <p>{JSON.stringify(nftList, null, 2)}</p>
+      <div className={global.main}>
+        <p>{message}</p>
+        <p>{JSON.stringify(nftList, null, 2)}</p>
+      </div>
     </section>
   )
 }

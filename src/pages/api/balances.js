@@ -1,13 +1,13 @@
 import Moralis from "moralis";
 
-const { MORALIS_API_KEY } = process.env
+const { MORALIS_API_KEY, MORALIS_ADDRESS } = process.env
 
 export default async function handler(req, res) {
   await Moralis.start({
     apiKey: MORALIS_API_KEY,
   });
 
-  const address = process.env.MORALIS_ADDRESS;
+  const address = MORALIS_ADDRESS;
 
   const [nativeBalance, tokenBalances] = await Promise.all([
     Moralis.EvmApi.account.getNativeBalance({ address }),

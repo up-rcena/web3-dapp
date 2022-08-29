@@ -1,6 +1,6 @@
 import {ConnectButton} from '@rainbow-me/rainbowkit'
 import {signIn, signOut, useSession} from 'next-auth/react'
-import {useAccount, useSignMessage, useNetwork} from 'wagmi'
+import {useAccount, useSignMessage, useNetwork, useDisconnect } from 'wagmi'
 import {useEffect} from 'react'
 import {useRouter} from 'next/router'
 import axios from 'axios'
@@ -9,10 +9,11 @@ import {Avatar, List, Popover} from "antd";
 import {UserOutlined} from "@ant-design/icons";
 
 function Navigation() {
-  const {isConnected, address} = useAccount()
+  const {isConnected, address } = useAccount()
   const {chain} = useNetwork()
   const {status} = useSession()
   const {signMessageAsync} = useSignMessage()
+  const { disconnectAsync } = useDisconnect();
   const {push} = useRouter()
 
   useEffect(() => {
@@ -31,7 +32,7 @@ function Navigation() {
 
       // redirect user after success authentication to '/user' page
       const {url} = await signIn('credentials', {
-        message, signature, redirect: false, callbackUrl: '/user',
+        message, signature, redirect: false, callbackUrl: '/',
       })
       /**
        * instead of using signIn(..., redirect: "/user")
@@ -45,15 +46,17 @@ function Navigation() {
   }, [status, isConnected])
 
   const handleProfile = () => {
-  alert('Profile')
+    push('/user')
   }
 
   const handleNFT = () => {
-
+    push('/protected/nft')
   }
 
-  const handleSignOut = () => signOut({redirect: '/'})
-
+  const handleSignOut = async () => {
+    signOut({redirect: '/'})
+    await disconnectAsync({})
+  }
 
   const handlePopoverMenu = () => {
     return (
@@ -96,7 +99,7 @@ function Navigation() {
           placement={'bottomRight'}
           title={<span>Logged User</span>}
           content={handlePopoverMenu}
-          trigger={'click'}
+          trigger={'hover'}
         >
           {status === 'authenticated' && (
             <Avatar
