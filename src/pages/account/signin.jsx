@@ -1,6 +1,7 @@
 import MainLayout from "../../components/layouts/main-layouts";
 import Head from "next/head";
 import global from '../../../styles/main.module.css'
+import Native from "../native";
 
 function SignIn() {
 
@@ -13,6 +14,8 @@ function SignIn() {
     </section>
   )
 }
+
+export default SignIn
 
 SignIn.getLayout = function getLayout(page) {
   return (
