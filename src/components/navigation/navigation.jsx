@@ -44,7 +44,7 @@ function Navigation() {
     if (status === 'unauthenticated' && isConnected) {
       handleAuth()
     }
-  }, [status, isConnected, address, chain.id, push, signMessageAsync])
+  }, [status, isConnected, address, chain, push, signMessageAsync])
 
   const handleProfile = () => {
     push('/profile')
