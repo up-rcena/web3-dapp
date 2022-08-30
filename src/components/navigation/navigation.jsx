@@ -32,7 +32,7 @@ function Navigation() {
 
       // redirect profile after success authentication to '/profile' page
       const {url} = await signIn('credentials', {
-        message, signature, redirect: false, callbackUrl: '/',
+        message, signature, redirect: false, callbackUrl: '/profile',
       })
       /**
        * instead of using signIn(..., redirect: "/profile")

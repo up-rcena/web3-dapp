@@ -7,7 +7,7 @@ const {Header, Content, Footer} = Layout;
 
 function MainLayout({children}) {
 
-  return (<Layout style={{height: '100vh', overflow: 'auto'}}>
+  return (<Layout style={{ minHeight: '100vh', overflow: 'auto'}}>
       <Header>
         <Navigation/>
       </Header>

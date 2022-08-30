@@ -12,6 +12,7 @@ function Native({nativeBalance, address, tokens, nfts}) {
   const mapNFT = (nft) => {
     return nft.map((item, key) => (<Card
       key={key}
+      hoverable
       style={{width: 300, margin: "15px"}}
       cover={
         <img

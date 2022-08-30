@@ -2,17 +2,44 @@ import MainLayout from "../../components/layouts/main-layouts";
 import Head from "next/head";
 import {getSession} from "next-auth/react";
 import global from '../../../styles/main.module.css'
+import {Tooltip, Card} from "antd";
+import {EditOutlined, EllipsisOutlined, SettingOutlined} from "@ant-design/icons";
+import {getEllipsisText} from "../../helpers/string.helpers";
 
 
 function User({user}) {
 
   const userDetails = (user) => {
 
-    return (<div style={{margin: 15}}>
-      <h3>Address: {user.address}</h3>
-      <h3>Profile ID: {user.profileId}</h3>
-      <h3>Signature: {user.signature}</h3>
-    </div>)
+    return (  <Card
+      hoverable
+      style={{width: 300, margin: "15px"}}
+      cover={
+        <img
+          alt="example"
+          src="https://designimages.appypie.com/browsebydisplayimage/babypenguin.gif"
+        />
+      }
+      actions={[
+        <SettingOutlined key="setting"/>,
+        <EditOutlined key="edit"/>,
+        <EllipsisOutlined key="ellipsis"/>,
+      ]}
+    >
+      <Card.Meta
+        title={<Tooltip placement={'topLeft'} title={`Address: ${user.address}`}>
+          <h3>{getEllipsisText(user.address, 4)}</h3>
+        </Tooltip>}
+        description={<div>
+          <Tooltip placement={"topLeft"} title={`Profile ID: ${user.profileId}`}>
+            <h3>Profile ID: {getEllipsisText(user.profileId,)}</h3>
+          </Tooltip>
+          <Tooltip placement={'topLeft'} title={`Signature: ${user.signature}`}>
+            <h3>Signature: {getEllipsisText(user.signature)}</h3>
+          </Tooltip>
+        </div>}
+      />
+    </Card>)
   }
 
   return (<section>
