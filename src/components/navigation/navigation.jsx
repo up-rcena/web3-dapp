@@ -38,13 +38,13 @@ function Navigation() {
        * instead of using signIn(..., redirect: "/profile")
        * we get the url from callback and push it to the router to avoid page refreshing
        */
-      push(url)
+      await push(url)
     }
 
     if (status === 'unauthenticated' && isConnected) {
       handleAuth()
     }
-  }, [status, isConnected])
+  }, [status, isConnected, address, chain.id, push, signMessageAsync])
 
   const handleProfile = () => {
     push('/profile')

@@ -11,14 +11,18 @@ import Image from "next/image";
 function Native({nativeBalance, address, tokens, nfts}) {
 
   const mapNFT = (nft) => {
+    const imageLoader = () => 'https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png';
     return nft.map((item, key) => (<Card
       key={key}
       hoverable
       style={{width: 300, margin: "15px"}}
       cover={
         <Image
+          loader={imageLoader}
           alt="example"
-          src="https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png"
+          src="me.png"
+          width={500}
+          height={500}
         />
       }
       actions={[

@@ -11,14 +11,17 @@ import Image from "next/image";
 function User({user}) {
 
   const userDetails = (user) => {
-
+    const imageLoader = () => 'https://designimages.appypie.com/browsebydisplayimage/babypenguin.gif'
     return (  <Card
       hoverable
       style={{width: 300, margin: "15px"}}
       cover={
         <Image
+          loader={imageLoader}
           alt="example"
-          src="https://designimages.appypie.com/browsebydisplayimage/babypenguin.gif"
+          src="me.gif"
+          width={500}
+          height={500}
         />
       }
       actions={[
