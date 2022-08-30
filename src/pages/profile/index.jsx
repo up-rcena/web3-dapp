@@ -2,7 +2,7 @@ import MainLayout from "../../components/layouts/main-layouts";
 import Head from "next/head";
 import {getSession} from "next-auth/react";
 import global from '../../../styles/main.module.css'
-import {Tooltip, Card} from "antd";
+import {Card, Tooltip} from "antd";
 import {EditOutlined, EllipsisOutlined, SettingOutlined} from "@ant-design/icons";
 import {getEllipsisText} from "../../helpers/string.helpers";
 import Image from "next/image";
@@ -12,7 +12,7 @@ function User({user}) {
 
   const userDetails = (user) => {
     const imageLoader = () => 'https://designimages.appypie.com/browsebydisplayimage/babypenguin.gif'
-    return (  <Card
+    return (<Card
       hoverable
       style={{width: 300, margin: "15px"}}
       cover={
