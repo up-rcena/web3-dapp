@@ -5,6 +5,7 @@ import global from '../../../styles/main.module.css'
 import {Tooltip, Card} from "antd";
 import {EditOutlined, EllipsisOutlined, SettingOutlined} from "@ant-design/icons";
 import {getEllipsisText} from "../../helpers/string.helpers";
+import Image from "next/image";
 
 
 function User({user}) {
@@ -15,7 +16,7 @@ function User({user}) {
       hoverable
       style={{width: 300, margin: "15px"}}
       cover={
-        <img
+        <Image
           alt="example"
           src="https://designimages.appypie.com/browsebydisplayimage/babypenguin.gif"
         />

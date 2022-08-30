@@ -6,6 +6,7 @@ import {Avatar, Card} from 'antd'
 import {EvmChain} from "@moralisweb3/evm-utils";
 import global from '../../../styles/main.module.css'
 import {getSession} from "next-auth/react";
+import Image from "next/image";
 
 function Native({nativeBalance, address, tokens, nfts}) {
 
@@ -15,7 +16,7 @@ function Native({nativeBalance, address, tokens, nfts}) {
       hoverable
       style={{width: 300, margin: "15px"}}
       cover={
-        <img
+        <Image
           alt="example"
           src="https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png"
         />
