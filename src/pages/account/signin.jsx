@@ -1,11 +1,16 @@
 import MainLayout from "../../components/layouts/main-layouts";
 import Head from "next/head";
-
+import global from '../../../styles/main.module.css'
 
 function SignIn() {
 
   return (
-    <section></section>
+    <section>
+      <h2>Sign In</h2>
+      <div className={global.main}>
+
+      </div>
+    </section>
   )
 }
 
