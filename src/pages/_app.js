@@ -10,7 +10,7 @@ import { getDefaultWallets, RainbowKitProvider } from "@rainbow-me/rainbowkit";
 
 import '../../styles/globals.css'
 import "@rainbow-me/rainbowkit/styles.css";
-import "antd/dist/antd.css";
+import "@antd/dist/antd.css";
 
 const { provider, webSocketProvider, chains } = configureChains(defaultChains, [
   publicProvider(),
