@@ -33,8 +33,8 @@ function Native({nativeBalance, address, tokens, nfts}) {
     >
       <Card.Meta
         avatar={<Avatar src="https://joeschmoe.io/api/v1/random"/>}
-        title={`Name: ${item.name}`}
-        description={`Amount: ${item.amount}`}
+        title={`Name: ${item.name} demo`}
+        description={`Amount: ${item.amount} demo`}
       />
     </Card>))
   }
